@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "paperplot"
+version = "0.1.0"
+description = "Standardized, paper-ready matplotlib formatting sized to a sheet's printable area."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "PolyForm Noncommercial License 1.0.0" }
+authors = [{ name = "Klaus Colletti Oehling" }]
+keywords = ["matplotlib", "plotting", "academic", "abnt", "figures", "latex"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "License :: Other/Proprietary License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Visualization",
+]
+dependencies = ["matplotlib>=3.5"]
+
+[project.optional-dependencies]
+dev = ["pytest>=7.0"]
+
+[project.urls]
+Homepage = "https://github.com/klaus-oehling/Paperplot"
+Repository = "https://github.com/klaus-oehling/Paperplot"
+Issues = "https://github.com/klaus-oehling/Paperplot/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
