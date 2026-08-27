@@ -43,8 +43,8 @@ BASE_RCPARAMS: dict[str, object] = {
     "xtick.labelsize": 10,
     "ytick.labelsize": 10,
     "legend.fontsize": 10,
-    "figure.dpi": 300,
-    "savefig.dpi": 300,
+    "figure.dpi": 600,
+    "savefig.dpi": 600,
     "lines.linewidth": LINE_LINEWIDTH,
     "axes.linewidth": AXES_LINEWIDTH,
 }
