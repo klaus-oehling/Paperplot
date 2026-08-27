@@ -137,7 +137,7 @@ def use_paper_format(
 
     Call this once before creating a figure. Every figure created afterwards
     inherits the academic style (serif fonts, Computer Modern mathtext,
-    300 dpi, the configured line widths) and the size computed from the paper
+    600 dpi, the configured line widths) and the size computed from the paper
     layout. The effect is global and persists until rcParams are changed again
     (e.g. via :func:`matplotlib.rcdefaults` or another call to this function).
 
