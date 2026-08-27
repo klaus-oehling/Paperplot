@@ -18,7 +18,7 @@ def savefig(
     fmt: str = "svg",
     *,
     fig: Optional[Figure] = None,
-    dpi: int = 300,
+    dpi: int = 600,
     tight_layout: bool = True,
     bbox_inches: Optional[str] = "tight",
     transparent: bool = False,
