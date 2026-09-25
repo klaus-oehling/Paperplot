@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "paperplot"
-version = "0.1.0"
+version = "0.2.0"
 description = "Standardized, paper-ready matplotlib formatting sized to a sheet's printable area."
 readme = "README.md"
 requires-python = ">=3.9"

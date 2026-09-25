@@ -89,10 +89,73 @@ def test_use_paper_format_sets_figsize_in_inches():
 def test_use_paper_format_sets_style_keys():
     pp.use_paper_format(5, 5)
     assert plt.rcParams["font.family"] == ["serif"]
+    assert plt.rcParams["font.serif"][0] == "cmr10"
     assert plt.rcParams["mathtext.fontset"] == "cm"
     assert plt.rcParams["axes.linewidth"] == pytest.approx(config.AXES_LINEWIDTH)
     assert plt.rcParams["lines.linewidth"] == pytest.approx(config.LINE_LINEWIDTH)
     assert plt.rcParams["figure.dpi"] == 300
+
+
+# --- linewidth overrides ---------------------------------------------------
+
+
+def test_linewidth_defaults():
+    pp.use_paper_format(5, 5)
+    assert plt.rcParams["lines.linewidth"] == pytest.approx(0.9)
+    assert plt.rcParams["axes.linewidth"] == pytest.approx(0.7)
+
+
+def test_linewidth_overrides():
+    pp.use_paper_format(5, 5, lines_linewidth=1.5, axes_linewidth=1.1)
+    assert plt.rcParams["lines.linewidth"] == pytest.approx(1.5)
+    assert plt.rcParams["axes.linewidth"] == pytest.approx(1.1)
+
+
+# --- journal profiles ------------------------------------------------------
+
+
+def test_sbfin_geometry_from_journal():
+    # A5 (14.8 x 21) minus 4 cm margins each way -> 10.8 wide x 17 tall.
+    size = pp.use_paper_format(journal="SBFin")
+    assert size == pytest.approx((10.8, 17.0))
+
+
+def test_sbfin_sets_fonts_and_sizes():
+    pp.use_paper_format(journal="SBFin")
+    assert plt.rcParams["font.serif"][0] == "Nimbus Roman No9 L"
+    assert plt.rcParams["mathtext.fontset"] == "stix"
+    assert plt.rcParams["axes.titlesize"] == pytest.approx(9)
+    assert plt.rcParams["axes.labelsize"] == pytest.approx(8)
+    assert plt.rcParams["xtick.labelsize"] == pytest.approx(7)
+    assert plt.rcParams["ytick.labelsize"] == pytest.approx(7)
+    assert plt.rcParams["legend.fontsize"] == pytest.approx(7)
+
+
+def test_journal_is_case_insensitive():
+    assert pp.use_paper_format(journal="sbfin") == pytest.approx((10.8, 17.0))
+
+
+def test_unknown_journal_raises():
+    with pytest.raises(ValueError):
+        pp.use_paper_format(journal="Nature")
+
+
+def test_explicit_args_override_journal():
+    # Override the journal's A5/4cm defaults with A4/5cm.
+    size = pp.use_paper_format(
+        vertical_margin_cm=5, horizontal_margin_cm=5,
+        journal="SBFin", paper_size="A4",
+    )
+    assert size == pytest.approx((16.0, 24.7))
+    # Fonts still come from the journal.
+    assert plt.rcParams["mathtext.fontset"] == "stix"
+
+
+def test_missing_margins_without_journal_raises():
+    with pytest.raises(ValueError):
+        pp.use_paper_format()  # no margins, no journal
+    with pytest.raises(ValueError):
+        compute_figsize_cm(vertical_margin_cm=5)  # only one margin
 
 
 def test_usetex_default_off():

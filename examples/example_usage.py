@@ -45,6 +45,17 @@ def main() -> None:
         ax.set_ylabel("Count")
         pp.savefig("hist_half_width", directory=OUTPUT_DIR, fmt="svg")
 
+    # SBFin journal template: A5, 2 cm margins and Times-like fonts are set by
+    # the journal, so only height/width_split (and any overrides) are needed.
+    # Thicker data line via lines_linewidth.
+    pp.use_paper_format(journal="SBFin", height=0.5, lines_linewidth=1.2)
+    fig, ax = plt.subplots()
+    ax.plot(x, np.cos(x), label=r"$\cos(x)$")
+    ax.set_xlabel(r"$x$")
+    ax.set_ylabel(r"$g(x)$")
+    ax.legend(loc="upper right")
+    pp.savefig("sbfin_cosine", directory=OUTPUT_DIR, fmt="png")
+
     print(f"Figures written to {OUTPUT_DIR}/")
 
 

@@ -16,8 +16,10 @@ Example
 from __future__ import annotations
 
 from .config import (
+    AVAILABLE_JOURNALS,
     AXES_LINEWIDTH,
     CM_PER_INCH,
+    JOURNALS,
     LINE_LINEWIDTH,
     PAPER_SIZES_CM,
 )
@@ -29,10 +31,12 @@ __all__ = [
     "paper_format",
     "compute_figsize_cm",
     "savefig",
+    "AVAILABLE_JOURNALS",
+    "JOURNALS",
     "AXES_LINEWIDTH",
     "LINE_LINEWIDTH",
     "CM_PER_INCH",
     "PAPER_SIZES_CM",
 ]
 
-__version__ = "0.1.0"
+__version__ = "0.2.0"
