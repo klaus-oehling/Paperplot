@@ -242,6 +242,8 @@ def use_paper_format(
     the paper layout. The effect is global and persists until rcParams are
     changed again (e.g. via :func:`matplotlib.rcdefaults` or another call).
 
+    See :func:`compute_figsize_cm` for the meaning of the sizing arguments.
+
     Parameters
     ----------
     vertical_margin_cm, horizontal_margin_cm, height, width_split, paper_size:

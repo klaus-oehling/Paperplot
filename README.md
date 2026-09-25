@@ -2,7 +2,7 @@
 
 Standardized, paper-ready [matplotlib](https://matplotlib.org/) formatting. Call
 one function before you plot and every figure adopts a consistent academic style
-(Computer Modern serif font, 300 dpi, thin axes) **and** a size derived from the
+(Computer Modern serif font, 600 dpi, thin axes) **and** a size derived from the
 printable area of your page — so figures drop into a LaTeX or Word document at
 exactly the intended physical size, with no rescaling.
 
@@ -135,7 +135,7 @@ pp.compute_figsize_cm(journal="SBFin")                  # -> (10.8, 17.0)
 ### `savefig(...)`
 
 Saves a figure with paper-ready defaults (tight layout, tight bounding box,
-300 dpi). Creates the directory if needed and returns the written file path.
+600 dpi). Creates the directory if needed and returns the written file path.
 
 | Argument | Type / allowed values | Default | What it does |
 | --- | --- | --- | --- |
@@ -143,7 +143,7 @@ Saves a figure with paper-ready defaults (tight layout, tight bounding box,
 | `directory` | `str` | `"."` | Output directory; created if missing. |
 | `fmt` | `"svg"` or `"png"` | `"svg"` | Output format and file extension. |
 | `fig` | `Figure` or `None` | `None` | Figure to save; `None` uses the current figure (`plt.gcf()`). |
-| `dpi` | `int` | `300` | Resolution for raster output (PNG). |
+| `dpi` | `int` | `600` | Resolution for raster output (PNG). |
 | `tight_layout` | `bool` | `True` | Call `fig.tight_layout()` before saving. |
 | `bbox_inches` | `str` or `None` | `"tight"` | `"tight"` trims surrounding whitespace. |
 | `transparent` | `bool` | `False` | Transparent background. |
@@ -235,7 +235,7 @@ overrides the font and size rows.
 | `axes.titlesize` / `axes.labelsize` | 12 / 11 |
 | `xtick.labelsize` / `ytick.labelsize` | 10 / 10 |
 | `legend.fontsize` | 10 |
-| `figure.dpi` / `savefig.dpi` | 300 / 300 |
+| `figure.dpi` / `savefig.dpi` | 600 / 600 |
 | `lines.linewidth` | 0.9 (override with `lines_linewidth`) |
 | `axes.linewidth` | 0.7 (override with `axes_linewidth`) |
 | `axes.xmargin` | 0 only when `tight_view=True` |

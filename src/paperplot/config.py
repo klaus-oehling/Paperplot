@@ -35,8 +35,8 @@ LINE_LINEWIDTH: float = 0.9
 
 #: rcParams shared by every figure regardless of profile.
 COMMON_RCPARAMS: dict[str, object] = {
-    "figure.dpi": 300,
-    "savefig.dpi": 300,
+    "figure.dpi": 600,
+    "savefig.dpi": 600,
 }
 
 #: Font and font-size rcParams for the default (Computer Modern) look.

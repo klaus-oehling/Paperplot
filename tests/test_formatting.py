@@ -93,7 +93,7 @@ def test_use_paper_format_sets_style_keys():
     assert plt.rcParams["mathtext.fontset"] == "cm"
     assert plt.rcParams["axes.linewidth"] == pytest.approx(config.AXES_LINEWIDTH)
     assert plt.rcParams["lines.linewidth"] == pytest.approx(config.LINE_LINEWIDTH)
-    assert plt.rcParams["figure.dpi"] == 300
+    assert plt.rcParams["figure.dpi"] == 600
 
 
 # --- linewidth overrides ---------------------------------------------------
