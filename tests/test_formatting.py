@@ -111,6 +111,15 @@ def test_linewidth_overrides():
     assert plt.rcParams["axes.linewidth"] == pytest.approx(1.1)
 
 
+def test_tick_widths_match_axes_linewidth():
+    pp.use_paper_format(5, 5)  # default axes width 0.7
+    assert plt.rcParams["xtick.major.width"] == pytest.approx(0.7)
+    assert plt.rcParams["ytick.major.width"] == pytest.approx(0.7)
+    pp.use_paper_format(5, 5, axes_linewidth=1.3)
+    assert plt.rcParams["xtick.major.width"] == pytest.approx(1.3)
+    assert plt.rcParams["ytick.major.width"] == pytest.approx(1.3)
+
+
 # --- journal profiles ------------------------------------------------------
 
 

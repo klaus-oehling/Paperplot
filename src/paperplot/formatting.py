@@ -212,6 +212,9 @@ def _build_rcparams(
     )
     rcparams["lines.linewidth"] = lines_linewidth
     rcparams["axes.linewidth"] = axes_linewidth
+    # Keep the major tick marks the same weight as the axes spines.
+    rcparams["xtick.major.width"] = axes_linewidth
+    rcparams["ytick.major.width"] = axes_linewidth
     if tight_view:
         # Only touch the x-margin when tightening; otherwise leave whatever the
         # caller (or matplotlib's default) already has in place.
@@ -271,7 +274,9 @@ def use_paper_format(
         :data:`paperplot.config.LINE_LINEWIDTH` (``0.9``) when ``None``.
     axes_linewidth:
         Axes / spine line width (``axes.linewidth``), in points. Defaults to
-        :data:`paperplot.config.AXES_LINEWIDTH` (``0.7``) when ``None``.
+        :data:`paperplot.config.AXES_LINEWIDTH` (``0.7``) when ``None``. The
+        major tick marks (``xtick.major.width`` / ``ytick.major.width``) are
+        set to the same value so they match the spines.
 
     Returns
     -------
