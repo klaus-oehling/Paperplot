@@ -120,6 +120,23 @@ def test_tick_widths_match_axes_linewidth():
     assert plt.rcParams["ytick.major.width"] == pytest.approx(1.3)
 
 
+def test_patch_linewidth_matches_axes_linewidth():
+    pp.use_paper_format(5, 5)
+    assert plt.rcParams["patch.linewidth"] == pytest.approx(0.7)
+    pp.use_paper_format(5, 5, axes_linewidth=1.3)
+    assert plt.rcParams["patch.linewidth"] == pytest.approx(1.3)
+
+
+def test_legend_frame_border_matches_axes_linewidth():
+    # The rendered legend box border must actually take the width.
+    pp.use_paper_format(5, 5, axes_linewidth=1.3)
+    fig, ax = plt.subplots()
+    ax.plot([0, 1], [0, 1], label="x")
+    leg = ax.legend()
+    assert leg.get_frame().get_linewidth() == pytest.approx(1.3)
+    plt.close(fig)
+
+
 # --- journal profiles ------------------------------------------------------
 
 

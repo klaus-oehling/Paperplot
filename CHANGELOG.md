@@ -10,6 +10,10 @@ project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 - Major tick marks now match the axes line width: `xtick.major.width` and
   `ytick.major.width` are set to `axes_linewidth` (default 0.7).
+- Patch edge width (`patch.linewidth`) now matches `axes_linewidth` too, so the
+  legend box border (and other patch edges) share the same weight as the spines
+  and ticks. matplotlib has no legend-only width rcParam, so this is set via
+  `patch.linewidth`, which also governs bar/histogram/`fill_between` edges.
 - `journal` argument on `use_paper_format`, `paper_format`, and
   `compute_figsize_cm`, selecting a publication template that sets fonts, font
   sizes, and default paper size and margins. First template: **SBFin**

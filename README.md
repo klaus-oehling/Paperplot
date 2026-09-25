@@ -74,7 +74,7 @@ settings are changed again. Returns the applied figure size `(width_cm, height_c
 | `usetex` | `bool` | `False` | `True` renders all text through a real LaTeX install (exact LaTeX output). `False` uses matplotlib fonts, no LaTeX needed. |
 | `tight_view` | `bool` | `False` | `True` sets `axes.xmargin = 0` so the box hugs the data and a line starts at the box edge. `False` leaves the x-margin untouched. |
 | `lines_linewidth` | `float` or `None` | `None` → `0.9` | Data line width (`lines.linewidth`), in points. |
-| `axes_linewidth` | `float` or `None` | `None` → `0.7` | Axes / spine line width (`axes.linewidth`), in points. The major tick marks (`xtick.major.width` / `ytick.major.width`) match this. |
+| `axes_linewidth` | `float` or `None` | `None` → `0.7` | Axes / spine line width (`axes.linewidth`), in points. The major tick marks (`xtick.major.width` / `ytick.major.width`) and patch edges (`patch.linewidth`, incl. the legend box border) match this. |
 
 ¹ The two margins are required **unless** a `journal` that fixes them is given.
 When both a journal and explicit margins are supplied, the explicit values win.
@@ -239,6 +239,7 @@ overrides the font and size rows.
 | `lines.linewidth` | 0.9 (override with `lines_linewidth`) |
 | `axes.linewidth` | 0.7 (override with `axes_linewidth`) |
 | `xtick.major.width` / `ytick.major.width` | matches `axes.linewidth` |
+| `patch.linewidth` (legend box + patch edges) | matches `axes.linewidth` |
 | `axes.xmargin` | 0 only when `tight_view=True` |
 | `text.usetex` | `False` (opt-in via `usetex=True`) |
 

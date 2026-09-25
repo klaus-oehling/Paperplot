@@ -215,6 +215,11 @@ def _build_rcparams(
     # Keep the major tick marks the same weight as the axes spines.
     rcparams["xtick.major.width"] = axes_linewidth
     rcparams["ytick.major.width"] = axes_linewidth
+    # Tie patch edges to the same weight. matplotlib has no legend-specific
+    # line-width rcParam; the legend frame reads its border width from
+    # ``patch.linewidth``, so setting it makes the legend box (and other patch
+    # edges) match the spines and ticks.
+    rcparams["patch.linewidth"] = axes_linewidth
     if tight_view:
         # Only touch the x-margin when tightening; otherwise leave whatever the
         # caller (or matplotlib's default) already has in place.
@@ -275,8 +280,10 @@ def use_paper_format(
     axes_linewidth:
         Axes / spine line width (``axes.linewidth``), in points. Defaults to
         :data:`paperplot.config.AXES_LINEWIDTH` (``0.7``) when ``None``. The
-        major tick marks (``xtick.major.width`` / ``ytick.major.width``) are
-        set to the same value so they match the spines.
+        major tick marks (``xtick.major.width`` / ``ytick.major.width``) and the
+        patch edge width (``patch.linewidth``, which governs the legend box
+        border and other patch edges) are set to the same value so they all
+        match the spines.
 
     Returns
     -------
